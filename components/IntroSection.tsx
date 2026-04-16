@@ -28,12 +28,12 @@ export default function IntroSection() {
             <div className="flex flex-col gap-6 max-w-[65ch]">
               <div className="border-l-2 border-[#4a9eff]/25 pl-5">
                 <p className="text-[#7a7a88] text-[0.9375rem] leading-[1.85] italic">
-                  [ Introduce yourself and your background in programming. Share your journey in learning Object-Oriented Programming, any prior experience you had, and what motivated you to create this portfolio. ]
+                  [ I am Franz, from BSIT 2-1. This portfolio is a collection of my work and reflections in Object-Oriented Programming, showcasing my journey through Java exercises, projects, and exams. It serves as both a documentation of my learning process and a demonstration of my skills in OOP concepts. ]
                 </p>
               </div>
               <div className="border-l-2 border-white/[0.09] pl-5">
                 <p className="text-[#7a7a88] text-[0.9375rem] leading-[1.85] italic">
-                  [ Second paragraph  reflect on your experience with Object-Oriented Programming or what you aim to document and demonstrate in this portfolio. ]
+                  [ Padayon. ]
                 </p>
               </div>
             </div>

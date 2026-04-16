@@ -27,7 +27,7 @@ export default function ActivitiesSection({
             {sectionTitle}.
           </h2>
           <p className="text-[#8a8a9a] text-sm mt-5 max-w-[40ch] leading-relaxed">
-            Six Java exercises covering the fundamental concepts of
+            Java exercises covering the fundamental concepts of
             Object-Oriented Programming.
           </p>
         </div>

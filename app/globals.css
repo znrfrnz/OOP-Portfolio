@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0d0d12;
+  color: #f0f0f4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Blue-tinted grid (matches Linear reference) ─── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(74, 100, 225, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 100, 225, 0.09) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ─── Outline text for decorative numbers ─── */
+.text-stroke {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
+  color: transparent;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ─── Hero element stagger (above-fold, CSS-only) ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  animation: fade-up 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--d, 0) * 85ms);
+}
+
+/* ─── Scroll-triggered reveal ─── */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Terminal float ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0.3deg); }
+  50%       { transform: translateY(-14px) rotate(-0.3deg); }
+}
+.float {
+  animation: float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ─── Cursor blink ─── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 1.1s step-end infinite; }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar              { width: 5px; }
+::-webkit-scrollbar-track        { background: #0d0d12; }
+::-webkit-scrollbar-thumb        { background: #2a2a32; border-radius: 3px; }

@@ -1,0 +1,62 @@
+import fs from "fs";
+import path from "path";
+import { activities } from "@/lib/activities";
+import ActivityRow from "./ActivityRow";
+import RevealOnScroll from "./RevealOnScroll";
+
+export default function ActivitiesSection({
+  partTag = "Part 01",
+  sectionTitle = "The Activities",
+  showMedia = false,
+}: {
+  partTag?: string;
+  sectionTitle?: string;
+  showMedia?: boolean;
+}) {
+  return (
+    <div className="max-w-[1400px] mx-auto px-6 md:px-12 pb-32">
+      {/* Section header */}
+      <RevealOnScroll>
+        <div className="py-14 border-b border-white/[0.05]">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="font-mono text-[11px] text-[#6a6a78] tracking-[0.22em] uppercase">
+              {partTag}
+            </span>
+          </div>
+          <h2 className="font-serif italic text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.9] tracking-tight text-[#f0f0f4]">
+            {sectionTitle}.
+          </h2>
+          <p className="text-[#8a8a9a] text-sm mt-5 max-w-[40ch] leading-relaxed">
+            Six Java exercises covering the fundamental concepts of
+            Object-Oriented Programming.
+          </p>
+        </div>
+      </RevealOnScroll>
+
+      {/* Activity rows */}
+      {activities.map((activity, index) => {
+        let codeOverride: string | undefined;
+        if (activity.codeFile) {
+          try {
+            codeOverride = fs.readFileSync(
+              path.join(process.cwd(), activity.codeFile),
+              "utf-8"
+            );
+          } catch {
+            // file not found — fall back to codePreview
+          }
+        }
+        return (
+          <RevealOnScroll key={activity.id}>
+            <ActivityRow
+              activity={activity}
+              index={index}
+              showMedia={showMedia}
+              codeOverride={codeOverride}
+            />
+          </RevealOnScroll>
+        );
+      })}
+    </div>
+  );
+}

@@ -35,43 +35,11 @@ export default function Hero() {
           {/* ── Right: Editorial text ── */}
           <div className="flex flex-col gap-8 md:pl-10">
 
-            {/* Serif display heading — the "Readme." */}
+            {/* Serif display heading */}
             <div className="reveal" style={{ "--d": "1" } as React.CSSProperties}>
               <h1 className="font-serif italic text-[clamp(4rem,9vw,8rem)] leading-[0.88] tracking-tight text-[#f0f0f4]">
-                Readme.
+                OOP Portfolio.
               </h1>
-            </div>
-
-            {/* Editorial paragraphs — Linear story format */}
-            <div
-              className="reveal flex flex-col gap-4"
-              style={{ "--d": "2" } as React.CSSProperties}
-            >
-              <div className="text-[#8a8a9a] text-[0.9375rem] leading-[1.75]">
-                <p>This is not a slide deck.</p>
-                <p>This is not a rubric, not a memorized lecture, and not a last-minute output.</p>
-              </div>
-              <div className="text-[#8a8a9a] text-[0.9375rem] leading-[1.75]">
-                <p>This is just a record of learning.</p>
-                <p>A record written in three parts.</p>
-              </div>
-              <div className="text-[#8a8a9a] text-[0.9375rem] leading-[1.75]">
-                <p>This is a simple record, but an honest one.</p>
-                <p>Like all learning, it has a beginning, a struggle, and a breakthrough.</p>
-                <p>
-                  Like all good stories, it&apos;s a story about{" "}
-                  <a
-                    href="/midterm"
-                    className="text-[#c0c0c8] underline underline-offset-4 decoration-white/20 hover:decoration-white/40 transition-all duration-200"
-                  >
-                    understanding objects.
-                  </a>
-                </p>
-              </div>
-              <div className="text-[#c0c0c8] text-[0.9375rem] leading-[1.75]">
-                <p>This portfolio is waiting to be read.</p>
-                <p className="font-medium text-[#f0f0f4]">That person is you.</p>
-              </div>
             </div>
 
             {/* Metadata + CTA */}

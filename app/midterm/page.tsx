@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
-import MediaPlaceholder, { type MediaType } from "@/components/MediaPlaceholder";
 import PdfViewer from "@/components/PdfViewer";
+import MediaPlaceholder from "@/components/MediaPlaceholder";
 import ActivitiesSection from "@/components/ActivitiesSection";
+import QuizzesSection from "@/components/QuizzesSection";
+import SeatworkSection from "@/components/SeatworkSection";
 import MidtermTabNav from "@/components/midterm/TabNav";
 import { midtermCategories, type MidtermItem } from "@/lib/midterm-data";
 
@@ -80,9 +82,7 @@ function SectionHeader({ partTag, label }: { partTag: string; label: string }) {
 }
 
 export default function MidtermPage() {
-  const quizzes  = midtermCategories.find((c) => c.slug === "quizzes")!;
-  const seatwork = midtermCategories.find((c) => c.slug === "seatwork")!;
-  const exam     = midtermCategories.find((c) => c.slug === "exam")!;
+  const exam = midtermCategories.find((c) => c.slug === "exam")!;
 
   return (
     <>
@@ -110,32 +110,13 @@ export default function MidtermPage() {
         <MidtermTabNav />
 
         {/* ── Quizzes ── */}
-        <section id="quizzes" className="max-w-[1400px] mx-auto px-6 md:px-12 scroll-mt-36">
-          <SectionHeader partTag={quizzes.partTag} label={quizzes.label} />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 pb-8">
-            {quizzes.items.map((item) => (
-              <RevealOnScroll key={item.id}>
-                <ItemCard item={item} />
-              </RevealOnScroll>
-            ))}
-          </div>
+        <section id="quizzes" className="scroll-mt-36">
+          <QuizzesSection partTag="Part 01" sectionTitle="Quizzes" showMedia />
         </section>
 
         {/* ── Seatwork ── */}
-        <section id="seatwork" className="max-w-[1400px] mx-auto px-6 md:px-12 scroll-mt-36">
-          <SectionHeader partTag={seatwork.partTag} label={seatwork.label} />
-          {/* First item spans full width (featured), next two in a row */}
-          <RevealOnScroll>
-            <ItemCard item={seatwork.items[0]} />
-          </RevealOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
-            {seatwork.items.slice(1).map((item) => (
-              <RevealOnScroll key={item.id}>
-                <ItemCard item={item} />
-              </RevealOnScroll>
-            ))}
-          </div>
-          <div className="pb-8" />
+        <section id="seatwork" className="scroll-mt-36">
+          <SeatworkSection partTag="Part 02" sectionTitle="Seatwork" showMedia />
         </section>
 
         {/* ── Activities ── */}

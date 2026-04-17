@@ -1,6 +1,5 @@
 import { type Activity } from "@/lib/activities";
 import CodeBlock from "./CodeBlock";
-import MediaPlaceholder from "./MediaPlaceholder";
 import PdfViewer from "./PdfViewer";
 
 export default function ActivityRow({
@@ -74,12 +73,9 @@ export default function ActivityRow({
       </div>
 
       {/* PDF viewer — full width, below both columns */}
-      {showMedia && (
+      {showMedia && activity.src && (
         <div className="relative z-10 mt-10">
-          {activity.src
-            ? <PdfViewer src={activity.src} filename={`Activity ${activity.id}.pdf`} tall />
-            : <MediaPlaceholder type="mixed" />
-          }
+          <PdfViewer src={activity.src} filename={`Activity ${activity.id}.pdf`} tall />
         </div>
       )}
     </article>

@@ -58,9 +58,11 @@ export const activities: Activity[] = [
     id: 5,
     slug: "personal-expense-tracker",
     title: "Personal Expense Tracker",
+    codeFile: "src/java/ExpenseTrackerBaes.java",
+    src: "/pdfs/ExpenseTrackerBaes.pdf",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    concepts: ["interface", "abstract", "implements", "Design Contracts", "default methods"],
-    codePreview: `// code preview for Personal Expense Tracker`,
+    concepts: ["Methods", "Code Organization", "OOP Design"],
+    codePreview: `// loading from src/java/ExpenseTrackerBaes.java`,
   },
 ];

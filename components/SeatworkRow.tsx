@@ -1,6 +1,5 @@
 ﻿import { type Seatwork } from "@/lib/seatwork";
 import CodeBlock from "./CodeBlock";
-import MediaPlaceholder from "./MediaPlaceholder";
 import PdfViewer from "./PdfViewer";
 
 export default function SeatworkRow({
@@ -59,19 +58,19 @@ export default function SeatworkRow({
         </div>
 
         <div className="w-full md:w-[420px] shrink-0">
-          <CodeBlock
-            code={codeOverride ?? seatwork.codePreview}
-            filename={`${seatwork.slug}.java`}
-          />
+          {(codeOverride ?? seatwork.codePreview) && (
+            <CodeBlock
+              code={codeOverride ?? seatwork.codePreview!}
+              filename={`${seatwork.slug}.java`}
+            />
+          )}
         </div>
+
       </div>
 
-      {showMedia && (
+      {showMedia && seatwork.src && (
         <div className="relative z-10 mt-10">
-          {seatwork.src
-            ? <PdfViewer src={seatwork.src} filename={`Seatwork ${seatwork.id}.pdf`} tall />
-            : <MediaPlaceholder type="mixed" />
-          }
+          <PdfViewer src={seatwork.src} filename={`Seatwork ${seatwork.id}.pdf`} tall />
         </div>
       )}
     </article>

@@ -1,6 +1,5 @@
 import { type Quiz } from "@/lib/quiz";
 import CodeBlock from "./CodeBlock";
-import MediaPlaceholder from "./MediaPlaceholder";
 import PdfViewer from "./PdfViewer";
 
 export default function QuizRow({
@@ -59,19 +58,18 @@ export default function QuizRow({
         </div>
 
         <div className="w-full md:w-[420px] shrink-0">
-          <CodeBlock
-            code={codeOverride ?? quiz.codePreview}
-            filename={`${quiz.slug}.java`}
-          />
+          {(codeOverride ?? quiz.codePreview) && (
+            <CodeBlock
+              code={codeOverride ?? quiz.codePreview!}
+              filename={`${quiz.slug}.java`}
+            />
+          )}
         </div>
       </div>
 
-      {showMedia && (
+      {showMedia && quiz.src && (
         <div className="relative z-10 mt-10">
-          {quiz.src
-            ? <PdfViewer src={quiz.src} filename={`Quiz ${quiz.id}.pdf`} tall />
-            : <MediaPlaceholder type="mixed" />
-          }
+          <PdfViewer src={quiz.src} filename={`Quiz ${quiz.id}.pdf`} tall />
         </div>
       )}
     </article>

@@ -3,7 +3,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import PdfViewer from "@/components/PdfViewer";
-import MediaPlaceholder from "@/components/MediaPlaceholder";
 import ActivitiesSection from "@/components/ActivitiesSection";
 import QuizzesSection from "@/components/QuizzesSection";
 import SeatworkSection from "@/components/SeatworkSection";
@@ -30,9 +29,7 @@ function ItemCard({ item }: { item: MidtermItem }) {
       <p className="text-[#7a7a88] text-[0.875rem] leading-relaxed border-l-2 border-white/[0.12] pl-4 italic">
         [ Add your description here. ]
       </p>
-      {item.mediaType === "pdf"
-        ? <PdfViewer src={item.src} filename={item.title} />
-        : <MediaPlaceholder type={item.mediaType} />}
+      {item.mediaType === "pdf" && item.src && <PdfViewer src={item.src} filename={item.title} />}
     </div>
   );
 }
@@ -54,9 +51,7 @@ function ExamCard({ item }: { item: MidtermItem }) {
           [ Add your exam reflection, score, or notes here. ]
         </p>
       </div>
-      {item.mediaType === "pdf"
-        ? <PdfViewer src={item.src} filename={item.title} tall />
-        : <MediaPlaceholder type={item.mediaType} tall />}
+      {item.mediaType === "pdf" && item.src && <PdfViewer src={item.src} filename={item.title} tall />}
     </div>
   );
 }

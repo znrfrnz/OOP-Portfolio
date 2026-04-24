@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 const NAV_LINKS = [
   { href: "/",        label: "Home"    },
   { href: "/midterm", label: "Midterm" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function LogoMark() {

@@ -47,9 +47,11 @@ function ExamCard({ item }: { item: MidtermItem }) {
             {item.title}
           </h3>
         </div>
-        <p className="text-[#7a7a88] text-[0.9375rem] leading-relaxed border-l-2 border-[#4a9eff]/35 pl-4 italic max-w-[44ch]">
-          [ Add your exam reflection, score, or notes here. ]
-        </p>
+        {item.description && (
+          <p className="text-[#7a7a88] text-[0.9375rem] leading-relaxed border-l-2 border-[#4a9eff]/35 pl-4 italic max-w-[44ch]">
+            {item.description}
+          </p>
+        )}
       </div>
       {item.mediaType === "pdf" && item.src && <PdfViewer src={item.src} filename={item.title} tall />}
     </div>

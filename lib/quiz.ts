@@ -14,9 +14,18 @@ export const quizzes: Quiz[] = [
         id: 1,
         slug: "quiz-1",
         title: "Quiz 1",
-        description: "Description for Quiz 1",
-        concepts: ["Concept 1", "Concept 2"],
-        src: "/pdfs/Quiz1.pdf",
+        description: "I did decent on this quiz, but I could have done better. I only skimmed through the material and was pretty lucky to get some of the answers right.",
+        concepts: ["Java Basics", "History of Java"],
+    
+        
+    },
+        {
+        id: 2,
+        slug: "quiz-2",
+        title: "Quiz 2",
+        description: "I did well on this quiz, the time limit was a bit tight, but I was able to answer most of the questions correctly. The quiz was quiet challenging, but I think I have a good grasp of the concepts covered.",
+        concepts: ["OOP Principles", "Java Syntax"],
+    
         
     },
 ]

@@ -4,6 +4,7 @@ export interface MidtermItem {
   id: number;
   code: string;
   title: string;
+  description?: string;
   mediaType: MediaType;
   src?: string;          // optional path to a file in /public, e.g. "/pdfs/midterm-exam.pdf"
 }
@@ -17,21 +18,11 @@ export interface MidtermCategory {
 
 export const midtermCategories: MidtermCategory[] = [
   {
-    slug: "seatwork",
-    partTag: "Part 02",
-    label: "Seatwork",
-    items: [
-      { id: 1, code: "SW·01", title: "Seatwork 1", mediaType: "code" },
-      { id: 2, code: "SW·02", title: "Seatwork 2", mediaType: "code" },
-      { id: 3, code: "SW·03", title: "Seatwork 3", mediaType: "code" },
-    ],
-  },
-  {
     slug: "exam",
     partTag: "Part 04",
     label: "Midterm exam",
     items: [
-      { id: 1, code: "EXAM", title: "Midterm exam", mediaType: "pdf", src: "" },
+      { id: 1, code: "EXAM", title: "Midterm exam", description: "The exam was easy (i think), i did not review a lot since i was confident. I hope my score did well. It covered the topics we discussed in class, including OOP principles, Control Flow, and other related concepts.", mediaType: "pdf", src: "" },
     ],
   },
 ];
